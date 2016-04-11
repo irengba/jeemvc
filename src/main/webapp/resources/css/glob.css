@@ -1,0 +1,177 @@
+/*
+///////////////////////////////////////
+	CSS Glob v1.14
+	Author : A. Irengba
+	website: http://www.irengba.com
+	Last Updated: 28-Aug-2015
+///////////////////////////////////////	
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, 
+header, footer, article, section, aside,  
+hgroup, menu, nav, figure,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+	font-size:100%;
+	background:transparent;
+	vertical-align:baseline;
+}
+
+html, body{
+	height:100%;
+	line-height:1;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight:400;
+	text-rendering:optimizeLegibility;
+}
+
+a:hover, a:visited, a:active, a:link{outline:none;}
+
+/* HTML5 tags set to display block */
+header, footer, article, section, hgroup, nav, aside, figure{ 
+	display:block;
+}
+
+input, select{vertical-align:middle; outline:none;}
+
+ol, ul{list-style:none;}
+
+table{border-collapse:collapse; border-spacing:0;}
+
+.tableCell{display:table-cell; vertical-align:middle;}
+.vMiddle{vertical-align:middle;}
+
+td, td img{vertical-align:top;}
+
+sub{vertical-align:sub; font-size:smaller;}
+
+sup{vertical-align:super; font-size:smaller;}
+
+/* Color*/
+.white{color:#fff;}
+.black{color:#000;}
+.red{color:#ff3300;}
+.green{color:#009900;}
+.blue{color:#0e74c2;}
+.orange{color:#ff6600;}
+
+/* Width and Height Auto */
+.wAuto{width:auto;}
+.hAuto{height:auto;}
+
+/* Width 100 percent*/
+.w100, .grid100{width:100%;}
+
+/* Width 50 percent*/
+.w50, .grid50{width:50%}
+
+/* Height 100 percent*/
+.h100{height:100%;}
+
+/* Border*/
+.noBorder{border:0;}
+
+/* Background*/
+.bgNone{background:none;}
+
+/* iframe-img*/
+iframe, img{border:none;}
+
+/* Padding/Margin 0*/
+.pd0{padding:0;}
+.mg0{margin:0;}
+
+/* Clear
+**/
+.clearLeft{clear:left;}
+.clearRight{clear:right;}
+.clear{clear:both; display:block; height:0;}
+.clearfix:before, .clearfix:after{content:" "; display:table;}
+.clearfix:after{clear:both;}
+
+
+/* Cursor
+**/
+.pointer{cursor:pointer;}
+.move{cursor:move;}
+.default{cursor:default;}
+
+
+/* Display
+**/
+.blk{display:block;}
+.inl{display:inline;}
+.inlBlk{display:inline-block;}
+.none{display:none;}
+.asTable{display:table;}
+
+
+/* Float
+**/
+.fl{float:left;}
+.fr{float:right;}
+.fn{float:none;}
+
+
+/* Font Style
+**/
+.light{font-weight:300;}
+.normal{font-weight:400;}
+.bold{font-weight:700;}
+.italic{font-style:italic;}
+
+
+/* Overflow
+**/
+.hideOver{overflow:hidden;}
+.showOver{overflow:visible;}
+.ellips{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+
+
+/* Visibility
+**/
+.visible{visibility:visible;}
+.invisible{visibility:hidden;}
+
+
+/* Position
+**/
+.rel{position:relative;}
+.abs{position:absolute;}
+.sta{position:static;}
+.fix{position:fixed;}
+.top0{top:0;}
+.right0{right:0;}
+.bottom0{bottom:0;}
+.left0{left:0;}
+
+
+/* Text Style
+**/
+.txtLeft{text-align:left;}
+.txtRight{text-align:right;}
+.txtCenter{text-align:center;}
+.txtJustify{text-align:justify;}
+.txtNoline{text-decoration:none;}
+.txtLine{text-decoration:underline;}
+.txtStrike{text-decoration:line-through;}
+.txtCaps{text-transform:capitalize;}
+.txtUpper{text-transform:uppercase;}
+.txtLower{text-transform:lowercase;}
+.txtNoWrap{white-space:nowrap;}
+.txtBreakWord{word-wrap:break-word;}
+
