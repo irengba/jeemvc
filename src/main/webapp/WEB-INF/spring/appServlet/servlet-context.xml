@@ -7,7 +7,6 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -49,13 +48,6 @@
         </beans:property>
     </beans:bean>
     
-    <!-- This is the view resolver for the JSON view renderer -->
-	<!-- <beans:bean name="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
-		<beans:property name="order" value="0" />
-	</beans:bean>
-	This is the definition for the JSON view renderer
-	<beans:bean name="jsonView" class="org.springframework.web.servlet.view.json.JsonView" />
-	<beans:bean name="jsonCallbackView" class="com.web.app.jsoncallback.JsonCallbackView" /> -->
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
      
@@ -81,13 +73,9 @@
         </beans:property>
     </beans:bean>
     
+    
     <beans:bean id="UserDAOImpl" class="com.web.app.dao.impl.UserDAOImpl">
     	<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    
-    <!--
-    <beans:bean id="personService" class="com.web.app.dao.PersonServiceImpl">
-        <beans:property name="personDAO" ref="personDAO"></beans:property>
-    </beans:bean> -->
 	
 </beans:beans>
