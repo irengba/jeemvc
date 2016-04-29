@@ -2,7 +2,7 @@
 *.jar
 *.war
 *.ear
-
+README.md
 target/
 pom.xml.tag
 pom.xml.releaseBackup
