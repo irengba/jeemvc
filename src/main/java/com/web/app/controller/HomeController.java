@@ -15,7 +15,7 @@ import com.web.app.session.UserSession;
 @Controller
 public class HomeController {
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest req, HttpServletResponse res)
 	{
 		UserSession session = (UserSession) req.getSession().getAttribute("USER_SESSION");
@@ -24,7 +24,7 @@ public class HomeController {
 		{
 			model.addAttribute("message", "Login Successful");
 			
-			return "redirect:/dashboard.htm";
+			return "redirect:/dashboard";
 		}
 		else
 		{

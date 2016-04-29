@@ -42,7 +42,7 @@ public class UserController {
 		
 		if(session != null)
 		{
-			return "redirect:/index.htm";
+			return "redirect:/";
 		}
 		else
 		{
@@ -95,7 +95,7 @@ public class UserController {
     		model.addAttribute("message", "Email is not valid.");
     	}
     	
-		return "redirect:/index.htm";
+		return "redirect:/";
 	}
 	
 	
@@ -108,7 +108,7 @@ public class UserController {
 		{
 			model.addAttribute("message", "Login Successful");
 			
-			return "redirect:/dashboard.htm";
+			return "redirect:/dashboard";
 		}
 		else
 		{
@@ -166,7 +166,7 @@ public class UserController {
     		model.addAttribute("message", "Email not valid");
     	}
     	
-    	return "redirect:/index.htm";
+    	return "redirect:/";
 	}
 	
 	
@@ -177,7 +177,7 @@ public class UserController {
 	{
 		req.getSession().invalidate();
 		
-		return "redirect:/index.htm";
+		return "redirect:/";
 	}
 	
 	

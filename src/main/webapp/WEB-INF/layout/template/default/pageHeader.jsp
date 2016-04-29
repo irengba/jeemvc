@@ -1,5 +1,5 @@
 <%@include file="/WEB-INF/layout/template/default/include.jsp"%>
-<%@page import="com.web.app.jspinitializer.JSPIntializer"%>
+<%@page import="com.web.app.util.JSPIntializer"%>
 <%JSPIntializer jspIntializer = new JSPIntializer(request);%>
 
 

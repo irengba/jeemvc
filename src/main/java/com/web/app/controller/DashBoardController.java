@@ -25,7 +25,7 @@ public class DashBoardController {
 		}
 		else
 		{
-			return "redirect:/index.htm";
+			return "redirect:/";
 		}
 	}
 

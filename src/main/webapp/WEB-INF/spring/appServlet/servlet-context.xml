@@ -81,7 +81,7 @@
         </beans:property>
     </beans:bean>
     
-    <beans:bean id="UserDAOImpl" class="com.web.app.daoImpl.UserDAOImpl">
+    <beans:bean id="UserDAOImpl" class="com.web.app.dao.impl.UserDAOImpl">
     	<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
     
