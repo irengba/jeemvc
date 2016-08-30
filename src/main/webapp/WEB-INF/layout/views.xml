@@ -10,7 +10,6 @@
 		<put-attribute name="pageBody"			value="/WEB-INF/views/landing/home-page.jsp" />
 	</definition>
 	
-	
 	<!-- REGISTER -->
 	<definition name="register" extends="mainTemplate">
 		<put-attribute name="title"	 			value="Web App" />
@@ -23,19 +22,5 @@
 		<put-attribute name="pageBody"			value="/WEB-INF/views/user/login.jsp" />
 	</definition>
 	
-	
-	<!-- USER ACCOUNT -->
-	<definition name="account" extends="mainTemplate">
-		<put-attribute name="title"	 			value="Web App" />
-		<put-attribute name="pageBody"			value="/WEB-INF/views/account/account.jsp" />
-	</definition>
-	
-	
-	<!-- USER DASHBOARD -->
-	<definition name="dashboard" extends="mainTemplate">
-		<put-attribute name="title"	 			value="Web App" />
-		<put-attribute name="pageBody"			value="/WEB-INF/views/dashboard/pageBody.jsp" />
-	</definition>
-
 
 </tiles-definitions>

@@ -108,7 +108,7 @@ public class UserController {
 		{
 			model.addAttribute("message", "Login Successful");
 			
-			return "redirect:/dashboard";
+			return "redirect:/";
 		}
 		else
 		{

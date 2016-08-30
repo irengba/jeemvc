@@ -23,15 +23,13 @@ public class HomeController {
 		if(session != null)
 		{
 			model.addAttribute("message", "Login Successful");
-			
-			return "redirect:/dashboard";
 		}
 		else
 		{
 			model.addAttribute("message", "Please login");
-			
-			return "landing";
 		}
+		
+		return "landing";
 	}
 	
 }

@@ -10,9 +10,9 @@
 		<put-attribute name="headJS"			value="/WEB-INF/layout/template/default/headJS.jsp" />
 		<put-attribute name="pageSpecific"		value="/WEB-INF/layout/template/default/pageSpecific.jsp" />
 		
-		<put-attribute name="pageHeader"		value="/WEB-INF/layout/template/default/pageHeader.jsp" />
+		<put-attribute name="pageHeader"		value="/WEB-INF/views/common/pageHeader.jsp" />
 		<put-attribute name="pageBody"			value="/WEB-INF/layout/template/default/pageBody.jsp" />
-		<put-attribute name="pageFooter"		value="/WEB-INF/layout/template/default/pageFooter.jsp" />
+		<put-attribute name="pageFooter"		value="/WEB-INF/views/common/pageFooter.jsp" />
 		
 		<put-attribute name="footerJS"			value="/WEB-INF/layout/template/default/footerJS.jsp" />
 	</definition>

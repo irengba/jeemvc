@@ -4,7 +4,7 @@
 <h1>Login</h1>
 
 <div id="loginForm">
-	<form action="${requestContext.contextPath}/login.htm" method="post">
+	<form action="${requestContext.contextPath}/login" method="post">
 		<input type="text" name="email" placeholder="Enter Email" id="email" />
 		<input type="password" name="password" placeholder="Enter Password" id="password" />
 		<input type="submit" name="submit" value="Submit" />
