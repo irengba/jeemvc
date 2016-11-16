@@ -4,11 +4,15 @@
 
 
 <header id="header">
-	<h2><a href="<c:url value="/" />">Header</a></h2>	
-	
+	<h2><a href="<c:url value="/" />">Header</a></h2>
+
 	<%if(jspIntializer.isLoggedIn()){%>
-			Hi, <%=jspIntializer.getSession().getUser().getEmail()%> | 
+			Hi, <%=jspIntializer.getSession().getUser().getEmail()%> |
 			<a href="<c:url value='/logout' /> ">Logout</a>
+			<h2>Start Payment</h2>
+			<form action="<c:url value='/start-payment' />" method="POST">
+			    <input type="submit" value="Pay" />
+			</form>
 	<%}else{%>
 			<div id="loginForm">
 				<form action="${requestContext.contextPath}/login" method="post">
