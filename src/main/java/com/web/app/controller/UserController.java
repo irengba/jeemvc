@@ -14,10 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.web.app.model.ResponsePojo;
 import com.web.app.model.User;
 import com.web.app.service.UserService;
 import com.web.app.session.UserSession;
+import com.web.app.util.Utility;
 import com.web.app.util.Validate;
 
 import sun.misc.BASE64Encoder;
@@ -31,6 +34,9 @@ public class UserController {
 	
 	@Autowired
 	private Validate validate;
+	
+	@Autowired
+	private Utility utility;
 	
 	
 	/* SINGUP GET
@@ -53,13 +59,16 @@ public class UserController {
 	
 	/* SINGUP POST
 	 * */
-	@RequestMapping(value="/register", method = RequestMethod.POST)
-	public String RegisterPOST(Model model, HttpServletRequest req, HttpServletResponse res) throws Exception
+	@RequestMapping(value="/register", produces="application/json")
+	@ResponseBody
+	public ResponsePojo RegisterPOST(Model model, HttpServletRequest req, HttpServletResponse res) throws Exception
 	{
 		String email = req.getParameter("email") == null ? "" : req.getParameter("email");
 		String password = req.getParameter("password") == null ? "" : req.getParameter("password");
 		Integer verified = 1;
 		String status = "enable";
+		
+		ResponsePojo reponseStatus = new ResponsePojo();
 		
 		SecureRandom random = new SecureRandom();
     	final String verifyCode = new BigInteger(130, random).toString(32);
@@ -75,27 +84,32 @@ public class UserController {
     		{
     			if(!password.equals("") && isPasswordValid)
     			{
-    				password = encrypt(password, "MD5", "UTF-8");
+    				password = utility.encrypt(password, "MD5", "UTF-8");
     				int userId = userService.registerUser(email, password, verifyCode, verified, status);
     				
-    				model.addAttribute("message", "Account created successfully.");
+    				reponseStatus.setStatus(200);
+    				reponseStatus.setMessage("Account created successfully.");
     			}
     			else
     			{
-    				model.addAttribute("message", "Password is not valid.");
+    				reponseStatus.setStatus(400);
+    				reponseStatus.setMessage("Password is not valid.");
     			}
     		}
     		else
     		{
-    			model.addAttribute("message", "Email already exist.");
+    			reponseStatus.setStatus(400);
+				reponseStatus.setMessage("Email already exist.");
+    			model.addAttribute("message", "");
     		}
     	}
     	else
     	{
-    		model.addAttribute("message", "Email is not valid.");
+    		reponseStatus.setStatus(400);
+			reponseStatus.setMessage("Email is not valid.");
     	}
     	
-		return "redirect:/";
+		return reponseStatus;
 	}
 	
 	
@@ -120,16 +134,19 @@ public class UserController {
 	
 	
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String LoginPOST(Model model, HttpServletRequest req, HttpServletResponse res) throws Exception
+	@RequestMapping(value = "/login", produces="application/json")
+	@ResponseBody
+	public ResponsePojo LoginPOST(Model model, HttpServletRequest req, HttpServletResponse res) throws Exception
 	{
 		String email = req.getParameter("email") == null ? "" : req.getParameter("email");
 		String password = req.getParameter("password") == null ? "" : req.getParameter("password");
 		
+		ResponsePojo reponseStatus = new ResponsePojo();
+		
     	boolean isEmailValid = validate.validateEmail(email);
     	boolean isEmailExist = userService.emailExist(email);
     	boolean isVerified = userService.isUserVerified(email);
-    	password = encrypt(password, "MD5", "UTF-8");
+    	password = utility.encrypt(password, "MD5", "UTF-8");
     	
     	if(isEmailValid)
     	{
@@ -145,28 +162,34 @@ public class UserController {
     					session.setSessionId(req.getSession().getId());
     					req.getSession(true).setAttribute("USER_SESSION", session);
     					
-    					model.addAttribute("message", "You have successfully login.");
+    					reponseStatus.setStatus(200);
+        				reponseStatus.setMessage("You have successfully login.");
     				}
     				else
     				{
-    					model.addAttribute("message", "User details not found.");
+    					reponseStatus.setStatus(400);
+        				reponseStatus.setMessage("User details not found.");
     				}
     			}
     			else
     			{
-    				model.addAttribute("message", "User not verified");
+    				reponseStatus.setStatus(400);
+    				reponseStatus.setMessage("User not verified.");
     			}
     		}
-    		else{
-    			model.addAttribute("message", "Email doesn't exist. Please Register");
+    		else
+    		{
+    			reponseStatus.setStatus(400);
+				reponseStatus.setMessage("Email doesn't exist. Please Register.");
     		}
     	}
     	else
     	{
-    		model.addAttribute("message", "Email not valid");
+    		reponseStatus.setStatus(400);
+			reponseStatus.setMessage("Email not valid.");
     	}
     	
-    	return "redirect:/";
+    	return reponseStatus;
 	}
 	
 	
@@ -176,35 +199,10 @@ public class UserController {
 	public String Logout(Model model, HttpServletRequest req, HttpServletResponse res)
 	{
 		req.getSession().invalidate();
+//		req.getSession().removeAttribute("USER_SESSION");
 		
 		return "redirect:/";
 	}
 	
 	
-	/* ENCRYPY PASSWORD WITH MD5 
-	 * */
-    public String encrypt(String plaintext, String algorithm, String encoding) throws Exception
-    {
-        MessageDigest msgDigest = null;
-        String hashValue = null;
-        try
-        {
-            msgDigest = MessageDigest.getInstance(algorithm);
-            msgDigest.update(plaintext.getBytes(encoding));
-            byte rawByte[] = msgDigest.digest();
-            hashValue = (new BASE64Encoder()).encode(rawByte);
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            System.out.println("No Such Algorithm Exists");
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            System.out.println("The Encoding Is Not Supported");
-        }
-        
-        return hashValue;
-    }
-    
-
 }

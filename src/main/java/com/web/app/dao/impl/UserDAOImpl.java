@@ -71,6 +71,8 @@ public class UserDAOImpl implements UserDAO{
 	{
 		Session session = sessionFactory.openSession();
 		String hql = "from User where email=:email and password=:password";
+//		String hql = "update User set email=:email, password=:password where mobile=:mobile";
+//		String hql = "delete from User where mobile=:mobile";
 		Query query = session.createQuery(hql);
 		query.setParameter("email", email);
 		query.setParameter("password", password);

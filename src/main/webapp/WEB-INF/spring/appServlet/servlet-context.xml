@@ -38,6 +38,8 @@
         <beans:property name="annotatedClasses">
             <beans:list>
                 <beans:value>com.web.app.model.User</beans:value>
+                <beans:value>com.web.app.model.Menu</beans:value>
+                <beans:value>com.web.app.model.MenuItems</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">

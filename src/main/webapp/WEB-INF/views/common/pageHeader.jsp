@@ -11,12 +11,28 @@
 			<a href="<c:url value='/logout' /> ">Logout</a>
 	<%}else{%>
 			<div id="loginForm">
-				<form action="${requestContext.contextPath}/login" method="post">
-					<input type="text" name="email" placeholder="Enter Email" id="email" />
-					<input type="password" name="password" placeholder="Enter Password" id="password" />
-					<input type="submit" name="submit" value="Submit" />
-				</form>
+				<input type="text" name="email" placeholder="Enter Email" id="email" />
+				<input type="password" name="password" placeholder="Enter Password" id="password" />
+				<input type="submit" name="submit" value="Submit" id="loginSubmit" />
 			</div>
 	<%}%>
 	<br/>===${message}
 </header>
+
+
+<script>
+	
+	$(function(){
+		$('#loginSubmit').on('click', function(){
+			var data = {
+				email: $('#loginForm #email').val(),
+				password: $('#loginForm #password').val()
+			};
+			$.post(contextPath+"/login", data , function(data){
+				location.reload();
+		    });
+		});
+		
+	});
+
+</script>
