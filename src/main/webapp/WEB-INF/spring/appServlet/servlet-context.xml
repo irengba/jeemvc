@@ -20,26 +20,24 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.web.app" />
+	<context:component-scan base-package="com.app" />
 	
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-        destroy-method="close">
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url"
-            value="jdbc:mysql://localhost:3306/shope" />
+        <beans:property name="url" value="jdbc:mysql://localhost:3306/shope" />
         <beans:property name="username" value="root" />
         <beans:property name="password" value="root" />
     </beans:bean>
  
     <!-- Hibernate 4 SessionFactory Bean definition -->
-    <beans:bean id="hibernate4AnnotatedSessionFactory"
-        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <beans:bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
-                <beans:value>com.web.app.model.User</beans:value>
-                <beans:value>com.web.app.model.Menu</beans:value>
-                <beans:value>com.web.app.model.MenuItems</beans:value>
+            	<beans:value>com.app.admin.model.Admin</beans:value>
+                <beans:value>com.app.web.model.User</beans:value>
+                <beans:value>com.app.web.model.Menu</beans:value>
+                <beans:value>com.app.web.model.MenuItems</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -70,13 +68,17 @@
         <beans:property name="definitions">
             <beans:list>
                 <beans:value>/WEB-INF/layout/layouts.xml</beans:value>
-				<beans:value>/WEB-INF/layout/views.xml</beans:value>
+				<beans:value>/WEB-INF/layout/views-admin.xml</beans:value>
+				<beans:value>/WEB-INF/layout/views-website.xml</beans:value>
             </beans:list>
         </beans:property>
     </beans:bean>
     
     
-    <beans:bean id="UserDAOImpl" class="com.web.app.dao.impl.UserDAOImpl">
+    <beans:bean id="UserDAOImpl" class="com.app.web.dao.impl.UserDAOImpl">
+    	<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="AdminDAOImpl" class="com.app.admin.dao.impl.AdminDAOImpl">
     	<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
 	

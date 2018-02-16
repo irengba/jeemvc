@@ -3,18 +3,33 @@
 
 <tiles-definitions>
 	
-	<definition name="mainTemplate" template="/WEB-INF/layout/template/template.jsp">
+	<definition name="websiteTemplate" template="/WEB-INF/layout/template-website.jsp">
 		<put-attribute name="title" 			value="Web App" />
-		<put-attribute name="headMeta"			value="/WEB-INF/layout/template/default/headMeta.jsp" />
-		<put-attribute name="headCSS"			value="/WEB-INF/layout/template/default/headCSS.jsp" />
-		<put-attribute name="headJS"			value="/WEB-INF/layout/template/default/headJS.jsp" />
-		<put-attribute name="pageSpecific"		value="/WEB-INF/layout/template/default/pageSpecific.jsp" />
+		<put-attribute name="headMeta"			value="/WEB-INF/views/website/common/default/headMeta.jsp" />
+		<put-attribute name="headCSS"			value="/WEB-INF/views/website/common/default/headCSS.jsp" />
+		<put-attribute name="headJS"			value="/WEB-INF/views/website/common/default/headJS.jsp" />
+		<put-attribute name="pageSpecific"		value="/WEB-INF/views/website/common/default/pageSpecific.jsp" />
 		
-		<put-attribute name="pageHeader"		value="/WEB-INF/views/common/pageHeader.jsp" />
-		<put-attribute name="pageBody"			value="/WEB-INF/layout/template/default/pageBody.jsp" />
-		<put-attribute name="pageFooter"		value="/WEB-INF/views/common/pageFooter.jsp" />
+		<put-attribute name="pageHeader"		value="/WEB-INF/views/website/common/pageHeader.jsp" />
+		<put-attribute name="pageBody"			value="/WEB-INF/views/website/common/default/pageBody.jsp" />
+		<put-attribute name="pageFooter"		value="/WEB-INF/views/website/common/pageFooter.jsp" />
 		
-		<put-attribute name="footerJS"			value="/WEB-INF/layout/template/default/footerJS.jsp" />
+		<put-attribute name="footerJS"			value="/WEB-INF/views/website/common/default/footerJS.jsp" />
+	</definition>
+	
+	
+	<definition name="adminTemplate" template="/WEB-INF/layout/template-admin.jsp">
+		<put-attribute name="title" 			value="Web App" />
+		<put-attribute name="headMeta"			value="/WEB-INF/views/admin/common/default/headMeta.jsp" />
+		<put-attribute name="headCSS"			value="/WEB-INF/views/admin/common/default/headCSS.jsp" />
+		<put-attribute name="headJS"			value="/WEB-INF/views/admin/common/default/headJS.jsp" />
+		<put-attribute name="pageSpecific"		value="/WEB-INF/views/admin/common/default/pageSpecific.jsp" />
+		
+		<put-attribute name="pageHeader"		value="/WEB-INF/views/admin/common/pageHeader.jsp" />
+		<put-attribute name="pageBody"			value="/WEB-INF/views/admin/common/default/pageBody.jsp" />
+		<put-attribute name="pageFooter"		value="/WEB-INF/views/admin/common/pageFooter.jsp" />
+		
+		<put-attribute name="footerJS"			value="/WEB-INF/views/admin/common/default/footerJS.jsp" />
 	</definition>
 	
 </tiles-definitions>
