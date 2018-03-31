@@ -2,7 +2,7 @@
 
 
 <div class="row">
-	<div class="col-sm-4 col-sm-offset-4">
+	<div class="col-md-12">
 		<h1>Dashboard</h1>
 	</div>
 </div>

@@ -1,14 +1,20 @@
 <%@include file="/WEB-INF/layout/include.jsp"%>
 
 
-<div class="row">
-	<div class="col-sm-4 col-sm-offset-4">
+<div class="row justify-content-center">
+	<div class="col-md-3">
 		<h1>Login</h1>
 		<div id="loginForm">
 			<form action="${requestContext.contextPath}/admin/login" method="post">
-				<input type="number" name="mobile" placeholder="Mobile Number" />
-				<input type="password" name="password" placeholder="Password" />
-				<input type="submit" name="submit" value="Submit" />
+				<div class="form-group">
+					<input type="number" name="mobile" placeholder="Mobile Number" class="form-control" />
+				</div>
+				<div class="form-group">
+					<input type="password" name="password" placeholder="Password" class="form-control" />
+				</div>
+				<div class="form-group">
+					<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+				</div>
 			</form>
 		</div>
 	</div>
